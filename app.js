@@ -2,11 +2,12 @@ let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
-let favicon = require('serve-favicon')
+let favicon = require('serve-favicon');
 let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+let clientsRouter = require('./routes/clients');
+let merchantsRouter = require('./routes/merchants');
 
 let app = express();
 
@@ -22,7 +23,8 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/client', clientsRouter);
+app.use('/merchant', merchantsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
