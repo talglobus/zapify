@@ -20,6 +20,7 @@ router.get('/input/:val', (req, res, next) => {
 
 router.post('/transaction', (req, res, next) => {
 	"use strict";
+	res.header('Access-Control-Allow-Origin', '*');
 	res.send("test");
 });
 
