@@ -3,6 +3,8 @@ let router = express.Router();
 
 router.get('/', (req, res, next) => {
 	"use strict";
+
+	res.header('Access-Control-Allow-Origin', '*');
 	res.render('index', { title: 'Merchants Endpoint' });
 });
 
@@ -15,6 +17,8 @@ router.get('/input/:val', (req, res, next) => {
 	} else {
 		// Invalid response
 	}
+
+	res.header('Access-Control-Allow-Origin', '*');
 	res.send('done');
 });
 
@@ -26,12 +30,14 @@ router.post('/transaction', (req, res, next) => {
 
 router.post('/nearby', (req, res, next) => {
 	"use strict";
+	res.header('Access-Control-Allow-Origin', '*');
 	res.send("test");
 
 });
 
 router.post('/ping', (req, res, next) => {
 	"use strict";
+	res.header('Access-Control-Allow-Origin', '*');
 	res.send("test");
 });
 
